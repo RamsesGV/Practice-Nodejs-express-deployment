@@ -14,4 +14,43 @@ router.get('/', (req,res) => {
   }
 })
 
+router.post('/', (req,res) => {
+const body = req.body
+res.json({
+  message:'user created',
+  data:body
+
+})
+})
+
+router.patch('/:id', (req,res) => {
+  const { id } = req.params
+  const body = req.body
+  res.json({
+    message: 'updated',
+    data:body,
+    id,
+  })
+})
+
+router.put('/:id', (req,res) =>{
+  const { id } = req.params
+  const body = req.body
+  res.json({
+    message:'putupdate',
+    data:body,
+    id,
+
+  })
+})
+
+router.delete('/:id', (req,res) => {
+  const { id } = req.params
+  res.json({
+    message:'user Deleted',
+    id,
+
+  })
+})
+
 module.exports = router
